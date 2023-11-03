@@ -36,7 +36,7 @@ function obtenerResultadoPartida() {
 	}
 }
 
-function game() {	
+/* function game() {	
 	for (let i = 1; i <=5; i++)	{
 		let playerSelection = prompt("¿Piedra, papel o tijera?")
 		let computerSelection = getComputerChoice()
@@ -44,4 +44,4 @@ function game() {
 	}
 	console.log(obtenerResultadoPartida())
 }
-game()
+game() */

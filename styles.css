@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+
+html {
+    font-size: 100%;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+body {
+    background-color: #201547;
+    color: #59cbe8;
+    text-align: center;
+}
+.contenedor {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 2rem auto;
+    border: solid 4px #1e22aa;
+    box-shadow: 1rem 1rem #051c2c;
+}
+h1 {
+    background-color: #1e22aa;
+    text-transform: uppercase;
+    color: #59cbe8;
+    margin: 0;
+    padding: 2rem 0;
+    width: 100%;
+}
+.contenedor > div {
+    width: 100%;
+    padding: 0rem 0;
+    border-top: solid 2px #1e22aa;
+}
+
+button {
+    border: none;
+    background-color: unset;
+    color: #e93cac;
+    font-size: 5rem;
+}
+button .material-symbols-sharp {
+    font-size: 5rem;
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+}
+button:hover .material-symbols-sharp {
+    color: #59cbe8;
+    transform: scale(1.5);
+}
+
+.conteo {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.resultado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.resultado p {
+    width: 100%;
+}
+.resultado p:first-child {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+.material-symbols-sharp.resultado {
+    display: inline;
+    font-size: 10rem;
+}
+.anterior {
+    color: #1e22aa;
+}
