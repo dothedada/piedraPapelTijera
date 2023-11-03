@@ -1,47 +1,87 @@
-function getComputerChoice() {
-	const opcionesPosibles = ["Piedra", "Tijera", "Papel"]
-	return opcionesPosibles[Math.floor(Math.random()*3)]
-}
+const contenedor = document.getElementById('contenedor')
+const botonera = document.querySelectorAll('#seleccion button')
+const conteo = document.getElementById('conteo')
+const contadorVictorias = document.getElementById('victorias')
+const contadorEmpates = document.getElementById('empates')
+const contadorDerrotas = document.getElementById('derrotas')
 
-function playRound(playerSelection, computerSelection) {
-	let seleccionUsuario = playerSelection.toUpperCase()
-	let seleccionComputador = computerSelection.toUpperCase()
-	if (seleccionUsuario === seleccionComputador) {
-		conteoEmpates++
-		return `El computador también seleccionó ${seleccionComputador}, hay un empate en esta ronda`
-	}
-	if (seleccionUsuario === "PIEDRA" && seleccionComputador === "TIJERA" || 
-		seleccionUsuario === "TIJERA" && seleccionComputador === "PAPEL" || 
-		seleccionUsuario === "PAPEL" && seleccionComputador === "PIEDRA") {
-		conteoVictoriasUsuario++
-		return `El computador seleccionó ${seleccionComputador}, por eso ganaste esta ronda :)`
-	}
-	conteoVictoriasComputador++
-	return `Perdistessss esta ronda, el computador seleccionó ${seleccionComputador}.`
-}
-
-let conteoVictoriasComputador = 0
-let conteoVictoriasUsuario = 0
+let resultadoRonda = ''
+let mensajeRonda = ''
+let conteoVictorias = 0
 let conteoEmpates = 0
+let conteoDerrotas = 0
 
-function obtenerResultadoPartida() {
-	if (conteoVictoriasComputador<conteoVictoriasUsuario) {
-		return `Con ${conteoVictoriasUsuario} victorias en sus hombros, Usuario gana esta partida`
-	}
-	if (conteoVictoriasComputador>conteoVictoriasUsuario) {
-		return `Con ${conteoVictoriasComputador} victorias en su código, Computador gana esta partida`
-	}
-	if (conteoVictoriasComputador===conteoVictoriasUsuario) {
-		return `Es un empate!!!`
-	}
+const elementos = ['piedra', 'tijera', 'papel']
+const seleccionPrograma = () => elementos[Math.floor(Math.random()*3)]
+
+function realizarPartida (jugador, programa) {
+    if (jugador === programa) {
+        resultadoRonda = 'Empate'
+        mensajeRonda = 'Nada que decir'
+        conteoEmpates++
+        contadorEmpates.textContent = `${conteoEmpates} Empates`
+
+        return
+    }
+    if (jugador === 'piedra' && programa === 'tijera' ||
+        jugador === 'tijera' && programa === 'papel' ||
+        jugador === 'papel' && programa ==='piedra') {
+        resultadoRonda = '¡Ganaste!'
+        mensajeRonda = `${jugador} vence ${programa}`
+        conteoVictorias++
+        contadorVictorias.textContent = `${conteoVictorias} Victorias`
+
+        return
+    }
+    resultadoRonda = 'Perdiste :/'
+    mensajeRonda = `${programa} vence ${jugador}`
+    conteoDerrotas++
+    contadorDerrotas.textContent = `${conteoDerrotas} Derrotas`
+
+    return
 }
 
-/* function game() {	
-	for (let i = 1; i <=5; i++)	{
-		let playerSelection = prompt("¿Piedra, papel o tijera?")
-		let computerSelection = getComputerChoice()
-		console.log(playRound(playerSelection,computerSelection))
-	}
-	console.log(obtenerResultadoPartida())
+function crearHistorial() {
+    const detalleResultado = document.createElement('div')
+    detalleResultado.classList.add('resultados')
+    const textoInicial = document.createElement('p')
+    textoInicial.textContent = resultadoRonda
+    const elementoUsuario = document.createElement('span')
+    elementoUsuario.classList.add('material-symbols-sharp')
+    elementoUsuario.classList.add('resultado')
+    // arreglar el item que carga
+    elementoUsuario.textContent = 'receipt_long'
+    const versus = document.createElement('span')
+    versus.textContent = 'Vs'
+    const elementoPrograma = document.createElement('span')
+    elementoPrograma.classList.add('material-symbols-sharp')
+    elementoPrograma.classList.add('resultado')
+    // arreglar el item que carga
+    elementoPrograma.textContent = 'diamond'
+    const conclusion = document.createElement('p')
+    conclusion.textContent = mensajeRonda
+
+    detalleResultado.appendChild(textoInicial)
+    detalleResultado.appendChild(elementoUsuario)
+    detalleResultado.appendChild(versus)
+    detalleResultado.appendChild(elementoPrograma)
+    detalleResultado.appendChild(conclusion)
+
+
+    contenedor.insertBefore(detalleResultado,conteo.nextElementSibling)
+
 }
-game() */
+
+for(const boton of botonera) {
+    boton.addEventListener('click', () => {
+        const jugador = boton.getAttribute('data-value')
+        const programa = seleccionPrograma()
+        boton.firstElementChild.addEventListener('transitionend', () => {
+            boton.firstElementChild.classList.remove('botonRotacion')
+        })
+        boton.firstElementChild.classList.add('botonRotacion')
+        realizarPartida(jugador, programa)
+        crearHistorial()
+    })
+}
+

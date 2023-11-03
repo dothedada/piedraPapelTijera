@@ -3,38 +3,43 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>🪨·✂️·📄</title>
+	<title>Piedra, tijera o papel</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <div class="contenedor">
+    <div id="contenedor" class="contenedor">
         <h1>Piedra, tijera o papel</h1>
         <div id="seleccion">
-            <p>¿Qué vas a seleccionar en esta partida?</p>
-            <button id="piedra" value="piedra">
+            <p>¿Qué vas a seleccionar en esta ronda?</p>
+            <button class="botonSeleccion" data-value="piedra">
                 <span class="material-symbols-sharp">
                     diamond
                 </span>
             </button>
-            <button id="tijera" value="tijera">
+            <button class="botonSeleccion" data-value="tijera">
                 <span class="material-symbols-sharp">
                     content_cut
                 </span>
             </button>
-            <button id="papel" value="papel">
+            <button class="botonSeleccion" data-value="papel">
                 <span class="material-symbols-sharp">
                     receipt_long
                 </span>
             </button>
         </div>
-        <div class="conteo">
-            <p><span>X</span> Victorias</p>
-            <p><span>X</span> Empates</p>
-            <p><span>X</span> Derrotas</p>
+        <div id="conteo" class="conteo">
+            <p id="victorias">0 Victorias</p>
+            <p id="empates">0 Empates</p>
+            <p id="derrotas">0 Derrotas</p>
+            <button id="reiniciar" class="botonReiniciar">
+                <span class="material-symbols-sharp">
+                    restart_alt
+                </span>
+            </button>
         </div>
-        <div id="resultado" class="resultado">
-            <p>¡Ganaste!</p>
+        <div class="resultados">
+            <p>¡Ganaste la ronda!</p>
             <span class="material-symbols-sharp resultado">
                 receipt_long
             </span>
@@ -44,8 +49,8 @@
             </span>
             <p>Piedra vence a tijera</p>
         </div>
-        <div id="resultado" class="resultado anterior">
-            <p>¡Ganaste!</p>
+        <div class="resultados anterior">
+            <p>Empataron</p>
             <span class="material-symbols-sharp resultado">
                 receipt_long
             </span>
@@ -54,6 +59,29 @@
                 receipt_long
             </span>
             <p>Piedra vence a tijera</p>
+        </div>
+        <div class="resultados anterior">
+            <p>¡Perdiste la ronda!</p>
+            <span class="material-symbols-sharp resultado">
+                receipt_long
+            </span>
+            <span>Vs.</span>
+            <span class="material-symbols-sharp resultado">
+                receipt_long
+            </span>
+            <p>Piedra vence a tijera</p>
+        </div>
+    </div>
+
+    <div class="finalPartida hidden">
+        <div class="recuadro">
+            <p class="recuadro__texto1">luego de X rondas...</p>
+            <p class="recuadro__texto2">¡¡¡GANASTE ESTA PARTIDA!!!</p> 
+
+            <div>
+                <button class="botonFinal">Jugar de nuevo</button>
+                <button class="botonFinal" >Cerrar</button>
+            </div>
         </div>
     </div>
 
