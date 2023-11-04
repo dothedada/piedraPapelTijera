@@ -67,9 +67,7 @@ function crearHistorial() {
     detalleResultado.appendChild(elementoPrograma)
     detalleResultado.appendChild(conclusion)
 
-
     contenedor.insertBefore(detalleResultado,conteo.nextElementSibling)
-
 }
 
 for(const boton of botonera) {
@@ -79,9 +77,13 @@ for(const boton of botonera) {
         boton.firstElementChild.addEventListener('transitionend', () => {
             boton.firstElementChild.classList.remove('botonRotacion')
         })
-        boton.firstElementChild.classList.add('botonRotacion')
+
         realizarPartida(jugador, programa)
-        crearHistorial()
+
+        setTimeout(() => {
+            crearHistorial()
+        }, 600)
+        boton.firstElementChild.classList.add('botonRotacion')
     })
 }
 

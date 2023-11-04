@@ -155,3 +155,139 @@ h1 {
     display: none;
     visibility: hidden;
 }
+    border: solid 4px #1e22aa;
+    box-shadow: 1rem 1rem #051c2c;
+}
+h1 {
+    background-color: #1e22aa;
+    text-transform: uppercase;
+    color: #59cbe8;
+    margin: 0;
+    padding: 2rem 0;
+    width: 100%;
+}
+.contenedor > div {
+    width: 100%;
+    padding: 0rem 0;
+    border-top: solid 2px #1e22aa;
+}
+
+.botonSeleccion {
+    border: none;
+    background-color: unset;
+    color: #e93cac;
+    font-size: 5rem;
+}
+.botonSeleccion .material-symbols-sharp {
+    font-size: 5rem;
+    transform: scale(1);
+    rotate: 0;
+    transition: 
+        transform 0.2s ease-in-out,
+        rotate 0.3s ease-in-out;
+}
+.botonSeleccion:hover {
+    color: #59cbe8;
+}
+.botonSeleccion:hover .material-symbols-sharp {
+    transform: scale(1.5);
+}
+.botonSeleccion:active {
+    color: white;
+}
+.botonRotacion {
+    rotate: 60deg;
+}
+.conteo {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.botonReiniciar {
+    display: block;
+    position: absolute;
+    background-color:#1e22aa; 
+    border: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0 0.5rem;
+    color: #e93cac;
+    transform: translateX(calc(-100% - 4px));
+}
+.botonReiniciar:hover {
+    color:#59cbe8;
+    background-color: #051c2c;
+}
+.botonReiniciar:active {
+    color: white;
+}
+
+.resultados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.resultados p {
+    width: 100%;
+}
+.resultados p:first-child {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+.material-symbols-sharp.resultado {
+    display: inline;
+    font-size: 10rem;
+}
+.anterior {
+    color: #1e22aa;
+}
+
+.finalPartida {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(32, 21, 71, 0.9);
+}
+.recuadro {
+    background-color: #201547;
+    border: solid 2px #59cbe8;
+    padding: 2rem 4rem;
+    box-shadow: 1rem 1rem #1e22aa;
+}
+.recuadro__texto1 {
+    font-size: 1.2rem;
+}
+.recuadro__texto2 {
+    font-size: 2.5rem;
+    color: white;
+}
+.botonFinal {
+    background-color: #e93cac;
+    color: #051c2c;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 2rem;
+}
+.botonFinal:hover {
+    background-color: #051c2c;
+    color:#e93cac;
+}
+.botonFinal:active {
+    background-color: white;
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}
