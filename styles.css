@@ -37,47 +37,38 @@ h1 {
     background-color: unset;
     color: #e93cac;
     font-size: 5rem;
-}
-.botonSeleccion .material-symbols-sharp {
-    font-size: 5rem;
     transform: scale(1);
-    rotate: 0;
     transition: 
         transform 0.2s ease-in-out,
         rotate 0.3s ease-in-out;
 }
 .botonSeleccion:hover {
     color: #59cbe8;
-}
-.botonSeleccion:hover .material-symbols-sharp {
     transform: scale(1.5);
 }
 .botonSeleccion:active {
     color: white;
-}
-.botonRotacion {
-    rotate: 60deg;
 }
 .conteo {
     display: flex;
     justify-content: space-evenly;
     position: relative;
 }
-
 .botonReiniciar {
     display: block;
     position: absolute;
-    background-color:#1e22aa; 
+    background-color: #1e22aa; 
+    font-size: 2.2rem;
     border: none;
     top: 0;
     left: 0;
     height: 100%;
-    padding: 0 0.5rem;
+    padding: 0.5rem 0.2rem 0.5rem 0.5rem;
     color: #e93cac;
     transform: translateX(calc(-100% - 4px));
 }
 .botonReiniciar:hover {
-    color:#59cbe8;
+    color: #59cbe8;
     background-color: #051c2c;
 }
 .botonReiniciar:active {
@@ -89,7 +80,7 @@ h1 {
     justify-content: center;
     align-items: center;
     color: #00BCE1;
-    transition: color 0.3s ease-in;
+    /* transition: color 0.3s ease-in; */
 }
 .resultados p {
     width: 100%;
@@ -98,8 +89,7 @@ h1 {
     font-size: 2rem;
     margin: 1rem 0;
 }
-.material-symbols-sharp.resultado {
-    display: inline;
+.iconify.resultado {
     font-size: 10rem;
 }
 .anterior {

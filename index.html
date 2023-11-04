@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Piedra, tijera o papel</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <div id="contenedor" class="contenedor">
@@ -13,19 +12,13 @@
         <div id="seleccion">
             <p>¿Qué vas a seleccionar en esta ronda?</p>
             <button class="botonSeleccion" data-value="piedra">
-                <span class="material-symbols-sharp">
-                    diamond
-                </span>
+                <span class="iconify" data-icon="mdi:diamond-stone"></span>
             </button>
             <button class="botonSeleccion" data-value="tijera">
-                <span class="material-symbols-sharp">
-                    content_cut
-                </span>
+                <span class="iconify" data-icon="mdi:content-cut"></span>
             </button>
             <button class="botonSeleccion" data-value="papel">
-                <span class="material-symbols-sharp">
-                    receipt_long
-                </span>
+                <span class="iconify" data-icon="mdi:paper-roll-outline"></span>
             </button>
         </div>
         <div id="conteo" class="conteo">
@@ -33,13 +26,12 @@
             <p id="empates">0 Empates</p>
             <p id="derrotas">0 Derrotas</p>
             <button id="reiniciar" class="botonReiniciar">
-                <span class="material-symbols-sharp">
-                    restart_alt
-                </span>
+                <span class="iconify" data-icon="mdi:reload"></span>
             </button>
         </div>
     </div>
 
 	<script src="main.js"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </body>
 </html>

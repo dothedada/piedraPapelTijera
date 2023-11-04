@@ -24,12 +24,12 @@ const seleccionPrograma = () => elementos[Math.floor(Math.random()*3)]
 
 // Asignación de los íconos del historial a partir de la selección
 function asignarIcono(seleccion) {
-    if(seleccion === 'piedra') return 'diamond'
-    if(seleccion === 'tijera') return 'content_cut'
-    if(seleccion === 'papel') return 'receipt_long'
+    if(seleccion === 'piedra') return 'mdi:diamond-stone'
+    if(seleccion === 'tijera') return 'mdi:content-cut'
+    if(seleccion === 'papel') return 'mdi:paper-roll-outline'
 }
 
-// Realización de la partida
+// Realización de la ronda
 function realizarPartida (jugador, programa) {
     itemJugador = asignarIcono(jugador)
     itemPrograma = asignarIcono(programa)
@@ -66,15 +66,14 @@ function crearHistorial() {
     const textoInicial = document.createElement('p')
     textoInicial.textContent = resultadoRonda
     const elementoUsuario = document.createElement('span')
-    elementoUsuario.classList.add('material-symbols-sharp')
-    elementoUsuario.classList.add('resultado')
-    elementoUsuario.textContent = itemJugador
+    elementoUsuario.classList.add('iconify', 'resultado')
+    elementoUsuario.setAttribute('data-icon', itemJugador)
     const versus = document.createElement('span')
     versus.textContent = 'Vs'
     const elementoPrograma = document.createElement('span')
-    elementoPrograma.classList.add('material-symbols-sharp')
+    elementoPrograma.classList.add('iconify', 'resultado')
     elementoPrograma.classList.add('resultado')
-    elementoPrograma.textContent = itemPrograma
+    elementoPrograma.setAttribute('data-icon', itemPrograma)
     const conclusion = document.createElement('p')
     conclusion.textContent = mensajeRonda
 
@@ -83,7 +82,6 @@ function crearHistorial() {
     detalleResultado.appendChild(versus)
     detalleResultado.appendChild(elementoPrograma)
     detalleResultado.appendChild(conclusion)
-
     contenedor.insertBefore(detalleResultado,conteo.nextElementSibling)
 
     if(totalPartidas <= 1) return
@@ -151,8 +149,6 @@ function finalizarJuego(){
         recuadro.appendChild(botonera)
         fondoModal.appendChild(recuadro)
         document.body.appendChild(fondoModal)
-
-
     } 
 }
 
@@ -162,17 +158,9 @@ for(const boton of botonera) {
         const jugador = boton.getAttribute('data-value')
         const programa = seleccionPrograma()
 
-
-
-        // setTimeout(() => {
-            realizarPartida(jugador, programa)
-            crearHistorial()
-            finalizarJuego()
-        // }, 600)
-        boton.firstElementChild.classList.add('botonRotacion')
-        boton.firstElementChild.addEventListener('transitionend', () => {
-            boton.firstElementChild.classList.remove('botonRotacion')
-        })
+        realizarPartida(jugador, programa)
+        crearHistorial()
+        finalizarJuego()
     })
 }
 
